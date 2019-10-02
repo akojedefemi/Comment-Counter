@@ -3,7 +3,7 @@
 
 #Assumptions: 
 - """triple quotes""" is not a multiline comment in python instead its a docstring.
-- Program file is written in Python, Java, Javascript or C
+- Program file is written in Python, Java, Javascript, C or SQL
 - Input come in form of a filepath
 - Block comments in python always start with # without white spaces
 - File has extension and does not start with a ‘.’
