@@ -6,6 +6,7 @@
 - Program file is written in Python, Java, Javascript or C
 - Input come in form of a filepath
 - Block comments in python always start with # without white spaces
+- File has extension and does not start with a ‘.’
 
 The define automate_checks() function takes in the filepath to the program file as input and returns the following outputs:
 - Total # of lines
