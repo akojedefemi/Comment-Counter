@@ -1,7 +1,7 @@
 # Author: Mark Ezema
 # This script helps automate checks on when the code is merged into the build pipeline.
 
-# Define quote_check() function takes in the line and target char as input and returns True if target char is not inbetween quotes
+# Define quote_check() function takes in the line and target char as input and returns True if target char is not inbetween quotation marks
 def quote_check(line, c_comment):
     quote_char = chr(34)    # Set quote_char to '"'
     in_quote = False    # True when within a quote
@@ -15,7 +15,7 @@ def quote_check(line, c_comment):
 
     return comment_seen
 
-# Define quote_check_multiple() function takes in the line and target string as input and returns True if target char is not inbetween quotes
+# Define quote_check_multiple() function takes in the line and target string as input and returns True if target char is not inbetween quotation marks
 def quote_check_multiple(line, find):
     quote_char = chr(34)    # Set quote_char to '"'
     index = line.find(quote_char)   # Set index to index of quote_char
@@ -23,13 +23,7 @@ def quote_check_multiple(line, find):
         return True # Return True if target char comes before second quotation mark
     return False
 
-# Define automate_checks() function takes in the filepath to the program file as input and returns the following outputs
-# Total # of lines
-# Total # of comment lines
-# Total # of single line comments
-# Total # of comment lines within block comments
-# Total # of block line comments
-# Total # of TODO’s
+# Define automate_checks() function takes in the filepath to the program file as input and prints out the required outputs
 def automate_checks(thefilepath):
 
     # Open the file in default read mode
@@ -51,7 +45,7 @@ def automate_checks(thefilepath):
     tracker = 0     # Initializes an integer value to count comments within a multi-line comment
     quote_char = '"'
 
-    # If filepath ends with y then execute python check
+    # Check if its a python file
     if thefilepath[-1] == "y":
 
         # Iterate through the list of lines
@@ -124,7 +118,7 @@ def automate_checks(thefilepath):
                     block_mode = False
                     tracker = 0
 
-    # Check for Java, Javascript, C
+    # For Java, Javascript, C
     else:
         # Iterate through the list of lines
         for line in listOfLines:
@@ -175,6 +169,8 @@ def automate_checks(thefilepath):
                         block_mode = False
                         totalBlockCommentLineCount += 1
 
+    # Close file
+    fileHandler.close()
 
     print("Total # of lines: ", count)
     print("Total # of comment lines: ", totalCommentLineCount)
@@ -183,7 +179,4 @@ def automate_checks(thefilepath):
     print("Total # of block line comments: ", totalBlockCommentLineCount)
     print("Total # of TODO’s: ", toDoCount)
 
-    # Close file
-    fileHandler.close()
-
-automate_checks("/Users/chukaezema/PycharmProjects/CapitalOne/automate checks.py")
+automate_checks("/Users/chukaezema/PycharmProjects/CapitalOne/test.py")
