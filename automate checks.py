@@ -1,27 +1,7 @@
+from quote_check import quote_check
+from quote_check_multiple import quote_check_multiple
 # Author: Mark Ezema
 # This script helps automate checks on when the code is merged into the build pipeline.
-
-# Define quote_check() function takes in the line and target char as input and returns True if target char is not inbetween quotation marks
-def quote_check(line, c_comment):
-    quote_char = chr(34)    # Set quote_char to '"'
-    in_quote = False    # True when within a quote
-    comment_seen = False    # True when Target char found and not within quote
-
-    for ch in line:
-        if in_quote is False and ch == c_comment:
-            comment_seen = True
-        if ch == quote_char:
-            in_quote = not in_quote
-
-    return comment_seen
-
-# Define quote_check_multiple() function takes in the line and target string as input and returns True if target char is not inbetween quotation marks
-def quote_check_multiple(line, find):
-    quote_char = chr(34)    # Set quote_char to '"'
-    index = line.find(quote_char)   # Set index to index of quote_char
-    if line.find(quote_char, index + 1) < line.find(find):
-        return True # Return True if target char comes before second quotation mark
-    return False
 
 # Define automate_checks() function takes in the filepath to the program file as input and prints out the required outputs
 def automate_checks(thefilepath):
@@ -179,3 +159,4 @@ def automate_checks(thefilepath):
     print("Total # of block line comments: ", totalBlockCommentLineCount)
     print("Total # of TODO’s: ", toDoCount)
 
+automate_checks("/Users/chukaezema/PycharmProjects/CapitalOne/test.py")
