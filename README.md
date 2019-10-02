@@ -5,6 +5,7 @@
 - """triple quotes""" is not a multiline comment in python instead its a docstring.
 - Program file is written in Python, Java, Javascript or C
 - Input come in form of a filepath
+- Block comments in python always start with # without white spaces
 
 The define automate_checks() function takes in the filepath to the program file as input and returns the following outputs:
 - Total # of lines
