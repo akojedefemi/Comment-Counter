@@ -158,5 +158,3 @@ def automate_checks(thefilepath):
     print("Total # of comment lines within block comments: ", block_line_total)
     print("Total # of block line comments: ", totalBlockCommentLineCount)
     print("Total # of TODO’s: ", toDoCount)
-
-automate_checks("/Users/chukaezema/PycharmProjects/CapitalOne/test.py")
