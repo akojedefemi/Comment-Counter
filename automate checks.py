@@ -99,12 +99,12 @@ def automate_checks(thefilepath):
                     tracker = 0
 
     # For Java, Javascript, C and SQL
-
-    # Check if its an SQL file
-    elif thefilepath[-1] == "l":
-        diff = "--"
     else:
-        diff = "//"
+        # Check if its an SQL file
+        if thefilepath[-1] == "l":
+            diff = "--"
+        else:
+            diff = "//"
         # Iterate through the list of lines
         for line in listOfLines:
 
@@ -163,5 +163,3 @@ def automate_checks(thefilepath):
     print("Total # of comment lines within block comments: ", block_line_total)
     print("Total # of block line comments: ", totalBlockCommentLineCount)
     print("Total # of TODO’s: ", toDoCount)
-
-automate_checks("/Users/chukaezema/PycharmProjects/CapitalOne/test2.js")
