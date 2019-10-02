@@ -23,4 +23,4 @@ We check if its a Python, Javascript, C or Java file.
 
 We iterate through the list of lines and remove all white space from the beginning (left trimming) and perform the necessary checks.
 
-We then close file to manage resources
+We then close the file to manage resources
