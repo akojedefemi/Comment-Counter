@@ -98,28 +98,33 @@ def automate_checks(thefilepath):
                     block_mode = False
                     tracker = 0
 
-    # For Java, Javascript, C
+    # For Java, Javascript, C and SQL
+
+    # Check if its an SQL file
+    elif thefilepath[-1] == "l":
+        diff = "--"
     else:
+        diff = "//"
         # Iterate through the list of lines
         for line in listOfLines:
 
             # Remove all white space from the beginning (left trimming)
             lineWithoutWhitespace = line.lstrip()
 
-            # Check if line contains /* or */ or // or *
-            if lineWithoutWhitespace.find("/*") != -1 or lineWithoutWhitespace.find("*/") != -1 or lineWithoutWhitespace.startswith("*") or lineWithoutWhitespace.find("//") != -1:
+            # Check if line contains /* or */ or diff or *
+            if lineWithoutWhitespace.find("/*") != -1 or lineWithoutWhitespace.find("*/") != -1 or lineWithoutWhitespace.startswith("*") or lineWithoutWhitespace.find(diff) != -1:
 
                 # If it isn't enclosed in quotation marks, increment Total # of comment lines
                 if lineWithoutWhitespace.find(quote_char) == -1:
                     totalCommentLineCount += 1
-                elif quote_check_multiple(lineWithoutWhitespace, "//"):
+                elif quote_check_multiple(lineWithoutWhitespace, diff):
                     totalCommentLineCount += 1
 
-                # If the line contains // and isn't enclosed in quotation marks, increment Total # of single line comments
-                if lineWithoutWhitespace.find("//") != -1:
+                # If the line contains diff and isn't enclosed in quotation marks, increment Total # of single line comments
+                if lineWithoutWhitespace.find(diff) != -1:
                     if lineWithoutWhitespace.find(quote_char) == -1:
                         singleCommentLineCount += 1
-                    elif quote_check_multiple(lineWithoutWhitespace, "//"):
+                    elif quote_check_multiple(lineWithoutWhitespace, diff):
                         singleCommentLineCount += 1
 
                     # If the line contains TODO and isn't enclosed in quotation marks, increment Total # of TODO’s
@@ -158,3 +163,5 @@ def automate_checks(thefilepath):
     print("Total # of comment lines within block comments: ", block_line_total)
     print("Total # of block line comments: ", totalBlockCommentLineCount)
     print("Total # of TODO’s: ", toDoCount)
+
+automate_checks("/Users/chukaezema/PycharmProjects/CapitalOne/test2.js")
