@@ -15,7 +15,7 @@ The define automate_checks() function takes in the filepath to the program file 
 - Total # of block line comments
 - Total # of TODO’s
 
-It makes use of two helper functions quote_check() and quote_check_multiple() which takes in the line and target char as input and returns True if target char is not inbetween quotes and takes in the line and target string as input and returns True if target char is not inbetween quotes respectively.
+It makes use of two helper functions quote_check() and quote_check_multiple(). quote_check() takes in the line and target character as input and returns True if target character is not inbetween quotation marks. quote_check_multiple() takes in a line and target string as input and returns True if target string is not inbetween quotation marks.
 
 We begin by opening the file in the default read mode. We the get list of all lines in file and count the number of lines in the program file by getting the length of the list of all lines.
 This approach works well for reasonably sized files so I am assuming the file is of a reasonable size.
