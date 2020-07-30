@@ -1,4 +1,3 @@
-# CapitalOne-Technical-Assessment
 # This script helps automate checks on when the code is merged into the build pipeline.
 
 #Assumptions: 
